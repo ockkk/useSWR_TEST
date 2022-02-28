@@ -7,7 +7,7 @@ import './Movie.css'
 export function Movie() {
   return (
     <div className="movie">
-      <p>useSWR</p>
+      <p>Redux</p>
       <h2>
         영화 검색
       </h2>
