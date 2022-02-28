@@ -1,5 +1,5 @@
 export const swrKeys = {
-  getMovie: 'getMovie',
+  getMovie: '/v1/search/movie',
   
 }
 

@@ -9,6 +9,6 @@ export const movieParamsAtom = atom<MovieParams>({
   country: undefined,
   genere: undefined,
   start: undefined,
-  yearfrom: 1900,
+  yearfrom: 1920,
   yearto: 2022,
 })

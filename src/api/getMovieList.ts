@@ -29,14 +29,15 @@ export interface MovieList {
   total: number;
 }
 
-export function getMovie(_: string, params: MovieParams): Promise<MovieList | undefined> {
-  const url = '/v1/search/movie';
+const clientId = import.meta.env.VITE_NAVER_CLIENT_ID as string;
+const clientSecret = import.meta.env.VITE_NAVER_CLIENT_SECRET as string;
 
+export function getMovie(url: string, params: MovieParams): Promise<MovieList | undefined> {
   return axios.get<MovieList>(url, { 
     params,
     headers: {
-      'X-Naver-Client-Id':'1_H8pQJZpH953pVNnhAf', 
-      'X-Naver-Client-Secret': 'f0e7sYyLb3'
+      'X-Naver-Client-Id': clientId,
+      'X-Naver-Client-Secret': clientSecret
     }
    }).then(response => response.data).catch(error => undefined);
 }

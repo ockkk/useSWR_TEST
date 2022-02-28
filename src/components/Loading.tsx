@@ -1,7 +1,5 @@
 export function Loading() {
   return (
-    <p>
-      'Loading.....'
-    </p>
+    <article aria-busy="true"></article>
   )
 }

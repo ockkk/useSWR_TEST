@@ -7,6 +7,9 @@ import './Movie.css'
 export function Movie() {
   return (
     <div className="movie">
+      <h2>
+        영화 검색
+      </h2>
       <SearchInput />
       <Suspense fallback={<Loading/>}>
         <MovieList />

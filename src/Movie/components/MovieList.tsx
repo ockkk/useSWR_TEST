@@ -18,7 +18,7 @@ export function MovieList () {
   }
 
   return (
-    <div>
+    <article>
       <ul>
         {MovieList.items.map((movie, i) => (
           <li key={`${movie.title}-${i}`}>
@@ -31,6 +31,6 @@ export function MovieList () {
           </li>
         ))}
       </ul>
-    </div>
+    </article>
   )
 }
