@@ -1,12 +1,12 @@
-import { useState } from 'react'
+import { Suspense } from 'react'
 import './App.css'
+import { Loading } from './components/Loading'
+import { Movie } from './Movie/Movie'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-    
+      <Movie />
     </div>
   )
 }
