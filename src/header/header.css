@@ -1,0 +1,9 @@
+.header {
+  width: 50%;
+  margin: auto;
+  justify-content: flex-start;
+}
+
+.header > a {
+  margin-right: 10px;
+}

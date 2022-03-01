@@ -6,10 +6,10 @@ export function MovieList () {
   const movieParams = useAtomValue(movieParamsAtom)
 
   const {
-    MovieList,
+    movieList,
   } = useGetMovie(movieParams);
 
-  if(MovieList === undefined || MovieList.items.length === 0) {
+  if(movieList === undefined || movieList.items.length === 0) {
     return (
       <p>
         검색 결과가 없습니다.
@@ -18,19 +18,22 @@ export function MovieList () {
   }
 
   return (
-    <article>
-      <ul>
-        {MovieList.items.map((movie, i) => (
-          <li key={`${movie.title}-${i}`}>
-            <img src={movie.image}/>
-            <p 
-              dangerouslySetInnerHTML={{
-              __html: movie.title
-              }} 
-            />
-          </li>
-        ))}
-      </ul>
-    </article>
+    <div>
+      <p>{`totalcount: ${movieList.total}`}</p>
+      <article>
+        <ul>
+          {movieList.items.map((movie, i) => (
+            <li key={`${movie.title}-${i}`}>
+              <img src={movie.image}/>
+              <p 
+                dangerouslySetInnerHTML={{
+                __html: movie.title
+                }} 
+              />
+            </li>
+          ))}
+        </ul>
+      </article>
+    </div>
   )
 }

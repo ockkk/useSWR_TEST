@@ -1,44 +1,39 @@
 import { useState } from "react";
 import { useUpdateAtom } from "jotai/utils";
-import { movieParamsAtom } from "../Movie.store";
 import { useSWRConfig } from 'swr';
-import '../Movie.css'
+import { useDispatch } from 'react-redux';
+import { 
+  changeQuery,
+  changeDisplayCount,
+  changeYearFrom,
+  changeYearTo,
+} from '../Movie.store';
+import '../Movie.css';
 
 export function SearchInput() {
   const [searchWord, setSearchWord] = useState('');
-  const setMovieParams = useUpdateAtom(movieParamsAtom);
+  const dispatch = useDispatch();
   const { cache } = useSWRConfig()
+
   const onChangeSerachWord = (e:React.ChangeEvent<HTMLInputElement>) => {
     setSearchWord(e.target.value as string);
   }
 
   const onChangeStartYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setMovieParams((prev) => ({
-      ...prev,
-      yearfrom: Number(e.target.value),
-    }))
+    dispatch(changeYearFrom(Number(e.target.value)));
   }
 
   const onChangeLastYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setMovieParams((prev) => ({
-      ...prev,
-      yearto: Number(e.target.value),
-    }))
+    dispatch(changeYearTo(Number(e.target.value)));
   }
   
   const onChangeDisplayCount = (e :React.ChangeEvent<HTMLSelectElement>) => {
-    setMovieParams((prev) => ({
-      ...prev,
-      display: Number(e.target.value),
-    }))
+    dispatch(changeDisplayCount(Number(e.target.value)));
   }
 
   const onSearch = () => {
-    setMovieParams((prev) => ({
-      ...prev,
-      query: searchWord,
-    }))
-    console.log(cache)
+    dispatch(changeQuery(searchWord));
+    console.log(cache);
   }
 
   const onKeyPressEnter = (e: React.KeyboardEvent<HTMLInputElement> ) => {

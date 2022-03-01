@@ -1,17 +1,17 @@
 import useSWR from 'swr';
-import { getMovie, GetMovieParams } from './getMovieList';
+import { getMovie, MovieParams } from './getMovieList';
 import { swrKeys } from './swrKeys';
 
-export function useGetMovie(params: GetMovieParams) {
+export function useGetMovie(params: MovieParams) {
   const {
-    data: MovieList,
+    data: movieList,
     error,
     mutate: MovieMutate,
   } = useSWR(params.query === '' ? null : [swrKeys.getMovie, params], getMovie, { suspense: true });
 
   return {
-    MovieList,
-    isLoading: !MovieList && !error,
+    movieList,
+    isLoading: !movieList && !error,
     MovieMutate,
   }
 }
