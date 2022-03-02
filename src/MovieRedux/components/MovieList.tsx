@@ -3,7 +3,9 @@ import useSelectorTyped from "../hooks";
 
 export function MovieList () {
   const movie = useSelectorTyped((state) => state.movie);
-  const { data: movieList, error, isLoading } = useGetMovieListQuery(movie);
+  const { data: movieList, error, isLoading } = useGetMovieListQuery(movie, {
+    skip: movie.query === '',
+  });
 
   if(movieList === undefined || movieList.items.length === 0) {
     return (

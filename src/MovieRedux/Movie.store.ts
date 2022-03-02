@@ -1,5 +1,4 @@
 import { MovieParams } from '../api/getMovieList';
-
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState: MovieParams = {
@@ -10,7 +9,7 @@ const initialState: MovieParams = {
   start: undefined,
   yearfrom: 1920,
   yearto: 2022,
-}
+};
 
 export const movieSlice = createSlice({
   name: 'movie',
@@ -30,13 +29,13 @@ export const movieSlice = createSlice({
       console.log(action.type)
     }
   }
-})
+});
 
 export const { 
   changeQuery, 
   changeDisplayCount, 
   changeYearFrom, 
   changeYearTo 
-} = movieSlice.actions
+} = movieSlice.actions;
 
-export default movieSlice.reducer
+export default movieSlice.reducer;
