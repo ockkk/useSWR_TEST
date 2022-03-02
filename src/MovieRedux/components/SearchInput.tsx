@@ -9,9 +9,12 @@ import {
   changeYearTo,
 } from '../Movie.store';
 import '../Movie.css';
+import { useGetMovieListQuery } from "../../api/query";
+import useSelectorTyped from "../hooks";
 
 export function SearchInput() {
   const [searchWord, setSearchWord] = useState('');
+
   const dispatch = useDispatch();
   const { cache } = useSWRConfig()
 

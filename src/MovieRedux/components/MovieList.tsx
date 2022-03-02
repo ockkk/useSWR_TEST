@@ -1,12 +1,9 @@
-import { useGetMovie } from "../../api/hooks";
+import { useGetMovieListQuery } from "../../api/query";
 import useSelectorTyped from "../hooks";
 
 export function MovieList () {
   const movie = useSelectorTyped((state) => state.movie);
-
-  const {
-    movieList,
-  } = useGetMovie(movie);
+  const { data: movieList, error, isLoading } = useGetMovieListQuery(movie);
 
   if(movieList === undefined || movieList.items.length === 0) {
     return (

@@ -8,6 +8,7 @@ export function SearchInput() {
   const [searchWord, setSearchWord] = useState('');
   const setMovieParams = useUpdateAtom(movieParamsAtom);
   const { cache } = useSWRConfig()
+  
   const onChangeSerachWord = (e:React.ChangeEvent<HTMLInputElement>) => {
     setSearchWord(e.target.value as string);
   }
